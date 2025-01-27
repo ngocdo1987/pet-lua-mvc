@@ -1,10 +1,14 @@
 -- redis_utils.lua
 local redis = require("redis")
+local load_env = require("load_env")  -- Import the load_env function
+
+-- Load environment variables
+local env_vars = load_env(".env")
 
 local RedisUtils = {}
 
 -- Connect to Redis
-local client = redis.connect("127.0.0.1", 6379)
+local client = redis.connect(env_vars["REDIS_HOST"], env_vars["REDIS_PORT"])
 
 -- Function to get data from Redis cache
 function RedisUtils.get_from_cache(key)
