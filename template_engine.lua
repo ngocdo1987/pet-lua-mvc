@@ -14,13 +14,17 @@ function TemplateEngine.render(template_name, data)
         error("Template file not found: " .. template_path)
     end
 
-    -- Read and compile the template file
-    -- print("Template path:", template_path)
-    local template_content = pl.compile(template_path)
+    -- Read the template file content
+    local template_file = io.open(template_path, "r")
+    if not template_file then
+        error("Failed to open template file: " .. template_path)
+    end
+    local template_content = template_file:read("*a")  -- Read the entire file
+    template_file:close()
 
-    -- Render the template with the provided data
-    -- print("Template content type:", type(template_content))
-    return template_content:render(data)  -- Call the :render() method
+    -- Compile and render the template with the provided data
+    local compiled_template = pl.compile(template_content)
+    return compiled_template:render(data)  -- Call the :render() method
 end
 
 return TemplateEngine
