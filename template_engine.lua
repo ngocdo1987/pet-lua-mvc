@@ -1,6 +1,6 @@
 -- template_engine.lua
-local pl = require("pl.template")
-local path = require("pl.path")
+local pl = require("pl.template")  -- Correctly require the template module
+local path = require("pl.path")    -- For file path operations
 
 local TemplateEngine = {}
 
@@ -14,8 +14,8 @@ function TemplateEngine.render(template_name, data)
         error("Template file not found: " .. template_path)
     end
 
-    -- Read the template file
-    local template_content = pl.template.compile(template_path)
+    -- Read and compile the template file
+    local template_content = pl.compile(template_path)
 
     -- Render the template with the provided data
     return template_content(data)
