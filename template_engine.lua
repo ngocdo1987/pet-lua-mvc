@@ -22,9 +22,11 @@ function TemplateEngine.render(template_name, data)
     local template_content = template_file:read("*a")  -- Read the entire file
     template_file:close()
 
-    -- Compile and render the template with the provided data
+    -- Compile the template
     local compiled_template = pl.compile(template_content)
-    return compiled_template(data)  -- Pass the data table directly
+
+    -- Render the template with the provided data
+    return compiled_template:render(data)  -- Call the :render() method
 end
 
 return TemplateEngine
