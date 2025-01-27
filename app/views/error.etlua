@@ -1,13 +1,9 @@
 <!-- app/views/error.etlua -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Error</title>
-    <link rel="stylesheet" href="/public/styles.css">
-</head>
-<body>
-    <h1>Error</h1>
+<% layout = "master" %>
+
+<% content = [[
     <p><%= message %></p>
     <a href="/">Go back to home</a>
-</body>
-</html>
+]] %>
+
+<%- include(layout) %>

@@ -1,0 +1,21 @@
+<!-- app/views/master.etlua -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title or "Lua MVC" %></title>
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+    <header>
+        <h1><%= message %></h1>
+    </header>
+
+    <main>
+        <%= content %>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My Lua MVC Application</p>
+    </footer>
+</body>
+</html>
