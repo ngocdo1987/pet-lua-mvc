@@ -1,17 +1,15 @@
-<!-- app/views/success.etlua -->
+<!-- app/views/home.etlua -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Success</title>
+    <title><%= title or "Lua MVC" %></title>
     <!-- Add Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Success</h1>
-        <p><%= message %></p>
-        <a href="/">Go back to home</a>
+        <h1 class="mt-4"><%= message %></h1>
     </div>
 
     <!-- Add Bootstrap 4 JS and dependencies -->

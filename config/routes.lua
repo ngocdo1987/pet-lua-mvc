@@ -7,6 +7,10 @@ local routes = {
         local home_controller = require("app.controllers.home_controller")
         return home_controller.submit(post_data)
     end,
+    ["/about"] = function()
+        local home_controller = require("app.controllers.home_controller")
+        return home_controller.about()
+    end,
     ["/404"] = function()
         return "404 Not Found"
     end

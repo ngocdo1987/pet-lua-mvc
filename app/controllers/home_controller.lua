@@ -1,5 +1,5 @@
 local User = require("app.models.user_model")
-local RedisUtils = require("redis_utils")  -- Import Redis utilities
+local RedisUtils = require("utils.redis_utils")  -- Import Redis utilities
 local cjson = require("cjson")
 local utils = require("utils")
 local TemplateEngine = require("template_engine")  -- Import template engine
@@ -37,8 +37,11 @@ function home_controller.submit(post_data)
 end
 
 function home_controller.about()
-    local view = require("app.views.home_view")
-    return view.render("About Us")
+    -- Render the home template with data
+    return TemplateEngine.render("about", {
+        title = "About us",
+        message = "About us"
+    })
 end
 
 return home_controller
