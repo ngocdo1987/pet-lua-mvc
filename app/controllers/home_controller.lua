@@ -7,7 +7,7 @@ local home_controller = {}
 function home_controller.index()
     local view = require("app.views.home_view")
     local users = User.all()  -- Fetch all users from the database
-    return view.render("Welcome to the Lua MVC!", users)
+    return view.render("Welcome to the Lua MVC (test deploy)!", users)
 end
 
 function home_controller.submit(post_data)
