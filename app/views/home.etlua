@@ -1,7 +1,13 @@
 <!-- app/views/home.etlua -->
-<% layout = "master" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+    <h1><%= message %></h1>
 
-<% content = [[
     <!-- Loop through users -->
     <% if users then %>
         <h2>Users:</h2>
@@ -22,6 +28,5 @@
         <input type="email" id="email" name="email">
         <button type="submit">Submit</button>
     </form>
-]] %>
-
-<%- include(layout) %>
+</body>
+</html>
