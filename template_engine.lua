@@ -24,7 +24,7 @@ function TemplateEngine.render(template_name, data)
 
     -- Compile and render the template with the provided data
     local compiled_template = pl.compile(template_content)
-    return compiled_template:render(data)  -- Call the :render() method
+    return compiled_template(data)  -- Pass the data table directly
 end
 
 return TemplateEngine
