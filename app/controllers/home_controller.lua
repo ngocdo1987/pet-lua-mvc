@@ -1,13 +1,16 @@
 local User = require("app.models.user_model")
--- local RedisUtils = require("redis_utils")  -- Import Redis utilities
+local RedisUtils = require("redis_utils")  -- Import Redis utilities
 local cjson = require("cjson")
 local utils = require("utils")
 local TemplateEngine = require("template_engine")  -- Import template engine
 
 local home_controller = {}
 
+-- Number of users per page
+local USERS_PER_PAGE = 5
+
 function home_controller.index()
-    local users = User.all()  -- Fetch all users from the database
+    local users = User.all(0, USERS_PER_PAGE)  -- Fetch all users from the database
     
     -- Render the home template with data
     return TemplateEngine.render("home", {
@@ -18,7 +21,6 @@ function home_controller.index()
 end
 
 function home_controller.submit(post_data)
-    local view = require("app.views.home_view")
     if post_data and post_data["name"] and post_data["email"] then
         -- Decode URL-encoded form data
         local name = utils.url_decode(post_data["name"])
