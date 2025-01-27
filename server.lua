@@ -3,7 +3,7 @@ local socket = require("socket")  -- Import LuaSocket for networking
 local lfs = require("lfs")        -- Import LuaFileSystem for file handling (optional)
 
 -- Import logging middleware
-local logging = require("middleware.logging")
+local logging = require("middleware.logging_middleware")
 
 -- Create a TCP server listening on port 8080
 local server = assert(socket.bind("*", 5678))

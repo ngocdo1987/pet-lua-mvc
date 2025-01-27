@@ -1,4 +1,5 @@
 local User = require("app.models.user_model")
+-- local RedisUtils = require("redis_utils")  -- Import Redis utilities
 local cjson = require("cjson")
 local utils = require("utils")
 local TemplateEngine = require("template_engine")  -- Import template engine

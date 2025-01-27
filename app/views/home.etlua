@@ -2,31 +2,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
+    <title><%= title or "Lua MVC" %></title>
+    <!-- Add Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/styles.css">
 </head>
 <body>
-    <h1><%= message %></h1>
+    <div class="container">
+        <h1 class="mt-4"><%= message %></h1>
 
-    <!-- Loop through users -->
-    <% if users then %>
-        <h2>Users:</h2>
-        <ul>
-            <% for _, user in ipairs(users) do %>
-                <li><%= user.name %> (<%= user.email %>)</li>
-            <% end %>
-        </ul>
-    <% else %>
-        <p>No users found.</p>
-    <% end %>
+        <!-- Loop through users -->
+        <% if users then %>
+            <h2 class="mt-4">Users:</h2>
+            <ul class="list-group">
+                <% for _, user in ipairs(users) do %>
+                    <li class="list-group-item"><%= user.name %> (<%= user.email %>)</li>
+                <% end %>
+            </ul>
+        <% else %>
+            <p class="mt-4">No users found.</p>
+        <% end %>
 
-    <!-- Form for adding a new user -->
-    <form action="/submit" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-        <button type="submit">Submit</button>
-    </form>
+        <!-- Form for adding a new user -->
+        <form action="/submit" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap 4 JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
