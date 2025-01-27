@@ -15,11 +15,11 @@ function TemplateEngine.render(template_name, data)
     end
 
     -- Read and compile the template file
-    print("Template path:", template_path)
+    -- print("Template path:", template_path)
     local template_content = pl.compile(template_path)
 
     -- Render the template with the provided data
-    print("Template content type:", type(template_content))
+    -- print("Template content type:", type(template_content))
     return template_content:render(data)  -- Call the :render() method
 end
 
