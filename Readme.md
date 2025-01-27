@@ -6,6 +6,7 @@ sudo luarocks install luasocket # handling HTTP requests and responses
 sudo luarocks install luafilesystem # file handling
 sudo luarocks install luasql-mysql # MySQL support
 sudo luarocks install redis-lua # Redis support
+sudo luarocks install lua-cjson # serializing and deserializing Lua tables to/from JSON
 ```
 # Run
 - Copy .env.example to .env, change DB information
