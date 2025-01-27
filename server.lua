@@ -1,7 +1,7 @@
 -- server.lua
 local socket = require("socket")  -- Import LuaSocket for networking
 local lfs = require("lfs")        -- Import LuaFileSystem for file handling (optional)
-local session = require("resty.session")  -- Import the session library
+-- local session = require("resty.session")  -- Import the session library
 
 -- Import logging middleware
 local logging = require("middleware.logging_middleware")
