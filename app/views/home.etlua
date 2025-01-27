@@ -1,0 +1,32 @@
+<!-- app/views/home.etlua -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+    <h1><%= message %></h1>
+
+    <!-- Loop through users -->
+    <% if users then %>
+        <h2>Users:</h2>
+        <ul>
+            <% for _, user in ipairs(users) do %>
+                <li><%= user.name %> (<%= user.email %>)</li>
+            <% end %>
+        </ul>
+    <% else %>
+        <p>No users found.</p>
+    <% end %>
+
+    <!-- Form for adding a new user -->
+    <form action="/submit" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

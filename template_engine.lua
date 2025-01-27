@@ -1,13 +1,13 @@
 -- template_engine.lua
-local pl = require("pl.template")  -- Correctly require the template module
-local path = require("pl.path")    -- For file path operations
+local etlua = require("etlua")  -- Import etlua
+local path = require("pl.path")  -- For file path operations
 
 local TemplateEngine = {}
 
 -- Function to render a template
 function TemplateEngine.render(template_name, data)
     -- Construct the full path to the template file
-    local template_path = "app/views/" .. template_name .. ".lua.html"
+    local template_path = "app/views/" .. template_name .. ".etlua"
 
     -- Check if the template file exists
     if not path.isfile(template_path) then
@@ -23,10 +23,10 @@ function TemplateEngine.render(template_name, data)
     template_file:close()
 
     -- Compile the template
-    local compiled_template = pl.compile(template_content)
+    local compiled_template = etlua.compile(template_content)
 
     -- Render the template with the provided data
-    return compiled_template:render(data)  -- Call the :render() method
+    return compiled_template(data)  -- Pass the data table directly
 end
 
 return TemplateEngine
