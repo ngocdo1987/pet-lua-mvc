@@ -6,9 +6,8 @@ local user_controller = {}
 function user_controller.index(post_data)
     local users = User.all(0, 10)
 
-    return TemplateEngine.render("", "admin.user.index", {
-        title = "List users",
-        users = users
+    return TemplateEngine.render("admin_user_index", {
+        title = "List users"
     })
 end
 
