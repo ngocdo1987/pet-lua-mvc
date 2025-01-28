@@ -18,7 +18,9 @@ end
 
 -- Create user form
 function user_controller.create()
-
+    return TemplateEngine.render("admin/user/create", {
+        title = "Create new user"
+    })
 end
 
 -- Create new user
@@ -28,12 +30,16 @@ end
 
 -- Show user information
 function user_controller.show(post_data)
-
+    return TemplateEngine.render("admin/user/show", {
+        title = "Show user information"
+    })
 end
 
 -- Edit user form
 function user_controller.edit(post_data)
-
+    return TemplateEngine.render("admin/user/edit", {
+        title = "Edit user"
+    })
 end
 
 -- Update existed user
