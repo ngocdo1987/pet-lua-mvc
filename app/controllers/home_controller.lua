@@ -9,7 +9,10 @@ local home_controller = {}
 -- Number of users per page
 local USERS_PER_PAGE = 5
 
-function home_controller.index()
+function home_controller.index(post_data)
+    -- Get the current page number from the query string (default to page 1)
+    local page = tonumber(post_data["page"]) or 1
+
     local users = User.all(0, USERS_PER_PAGE)  -- Fetch all users from the database
     
     -- Render the home template with data

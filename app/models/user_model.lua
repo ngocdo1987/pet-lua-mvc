@@ -27,7 +27,7 @@ end
 
 -- Function to get all users
 function User.all(offset, limit)
-    local query = string.format("SELECT * FROM users ORDER BY id DESC LIMIT %d, %d", offset, limit)
+    local query = string.format("SELECT id, name, email FROM users ORDER BY id DESC LIMIT %d, %d", offset, limit)
     local cursor, err = conn:execute(query)
     if not cursor then
         return nil, err
