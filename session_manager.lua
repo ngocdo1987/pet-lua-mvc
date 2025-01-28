@@ -3,15 +3,21 @@ local csrf_manager = require "csrf_manager"
 
 local sessions = {} -- In-memory session storage
 
+-- Create session
 local function create_session(user_id)
     local session_id = csrf_manager.generate_csrf_token() -- Use token as session ID
     sessions[session_id] = {
         user_id = user_id,
         csrf_token = csrf_manager.generate_csrf_token()
     }
+
+    -- Then save it
+    save_session()
+
     return session_id
 end
 
+-- Get session by ID
 local function get_session(session_id)
     return sessions[session_id]
 end
