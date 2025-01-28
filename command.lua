@@ -16,7 +16,8 @@ local cli = Lummander.new{
 -- Add commands
 cli:command("mycmd", "My command description")
     :action(function(parsed, command, app)
-        print("You activated `mycmd` command")
+        local mycmd = require "commands.mycmd"
+        mycmd.execute()
     end)
 
 cli:command("sum <value1> <value2>", "Sum 2 values")
