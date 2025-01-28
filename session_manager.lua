@@ -12,7 +12,11 @@ local function create_session(user_id)
     }
 
     -- Then save it
-    save_session()
+    local file = io.open("sessions.txt", "w") -- Change file name here
+    for session_id, data in pairs(sessions) do
+        file:write(session_id .. " " .. data.user_id .. " " .. data.csrf_token .. "\n")
+    end
+    file:close()
 
     return session_id
 end
