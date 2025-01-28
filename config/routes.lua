@@ -14,6 +14,15 @@ local routes = {
     ["/404"] = function()
         return "404 Not Found"
     end,
+    -- Auth controller
+    ["/login"] = function(post_data)
+        local auth_controller = require("app.controllers.auth_controller")
+        return auth_controller.login()
+    end,
+    ["/register"] = function(post_data)
+        local auth_controller = require("app.controllers.auth_controller")
+        return auth_controller.register()
+    end,
     -- Test controller
     ["/admin/test"] = function()
         local test_controller = require("app.controllers.admin.test_controller")
