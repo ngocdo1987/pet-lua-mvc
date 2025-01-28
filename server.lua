@@ -1,7 +1,8 @@
 -- server.lua
 local socket = require("socket")  -- Import LuaSocket for networking
 local lfs = require("lfs")        -- Import LuaFileSystem for file handling (optional)
--- local session = require("resty.session")  -- Import the session library
+local session_manager = require "session_manager"
+local csrf_manager = require "csrf_manager"
 
 -- Import logging middleware
 local logging = require("middleware.logging_middleware")
@@ -50,6 +51,19 @@ local function parse_post_body(client, content_length)
     return params
 end
 
+local function parse_cookies(cookie_header)
+    local cookies = {}
+    if cookie_header then
+        for cookie in cookie_header:gmatch("([^;]+)") do
+            local name, value = cookie:match("([^%s=]+)=([^%s=]+)")
+            if name and value then
+                cookies[name] = value
+            end
+        end
+    end
+    return cookies
+end
+
 -- Main server loop
 while true do
     -- Accept a client connection
@@ -72,6 +86,32 @@ while true do
 
     -- Parse request headers
     local headers = parse_headers(client)
+
+    -- START COOKIES + SESSIONS
+    -- Get the client's IP address
+    local ip_address = client:getpeername()
+    if not ip_address then
+        ip_address = "unknown" -- Fallback if IP address cannot be retrieved
+    end
+
+    local cookies = parse_cookies(headers["cookie"])
+    -- Get or create session_id from cookies
+    local session_id = cookies["session_id"]
+    local session
+    if not session_id then
+        -- Create a new session for first-time users
+        session_id = session_manager.create_session(ip_address)
+        session = session_manager.get_session(session_id)
+    else
+        -- Retrieve the session
+        session = session_manager.get_session(session_id)
+        if not session then
+            -- If the session is invalid, create a new one
+            session_id = session_manager.create_session(ip_address)
+            session = session_manager.get_session(session_id)
+        end
+    end
+    -- END COOKIES + SESSIONS
 
     -- Handle POST requests
     local post_data = {}
