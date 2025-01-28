@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1 class="mt-4"><%= title %></h1>
-        <table>
+        <table class="table">
             <tr>
                 <th>Name</th>
                 <th>Email</th>
