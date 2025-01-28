@@ -1,9 +1,9 @@
 local User = require("app.models.user_model")
 
-local admin_user_controller = {}
+local adminuser_controller = {}
 
 -- List users
-function admin_user_controller.index()
+function adminuser_controller.index()
     
     return TemplateEngine.render("about", {
         title = "List users",
@@ -12,32 +12,32 @@ function admin_user_controller.index()
 end
 
 -- Create user form
-function admin_user_controller.create()
+function adminuser_controller.create()
 
 end
 
 -- Create new user
-function admin_user_controller.store(post_data)
+function adminuser_controller.store(post_data)
 
 end
 
 -- Show user information
-function admin_user_controller.show(post_data)
+function adminuser_controller.show(post_data)
 
 end
 
 -- Edit user form
-function admin_user_controller.edit(post_data)
+function adminuser_controller.edit(post_data)
 
 end
 
 -- Update existed user
-function admin_user_controller.update(post_data)
+function adminuser_controller.update(post_data)
 
 end
 
 -- Delete user
-function admin_user_controller.destroy(post_data)
+function adminuser_controller.destroy(post_data)
 
 end
 

@@ -15,29 +15,29 @@ local routes = {
         return "404 Not Found"
     end,
     -- Admin routes for user
-    ["/admin_user"] = function()
-        local admin_user_controller = require("app.controllers.admin_user_controller")
-        return admin_user_controller.index()
+    ["/adminuser"] = function()
+        local adminuser_controller = require("app.controllers.adminuser_controller")
+        return adminuser_controller.index()
     end,
-    ["/admin/user/create"] = function()
-        local admin_user_controller = require("app.controllers.admin_user_controller")
-        return admin_user_controller.create()
+    ["/adminuser/create"] = function()
+        local adminuser_controller = require("app.controllers.adminuser_controller")
+        return adminuser_controller.create()
     end,
-    ["/admin/user/store"] = function(post_data)
-        local admin_user_controller = require("app.controllers.admin_user_controller")
-        return admin_user_controller.store(post_data)
+    ["/adminuser/store"] = function(post_data)
+        local adminuser_controller = require("app.controllers.adminuser_controller")
+        return adminuser_controller.store(post_data)
     end,
-    ["/admin/user/edit"] = function(post_data)
-        local admin_user_controller = require("app.controllers.admin_user_controller")
-        return admin_user_controller.edit(post_data)
+    ["/adminuser/edit"] = function(post_data)
+        local adminuser_controller = require("app.controllers.adminuser_controller")
+        return adminuser_controller.edit(post_data)
     end,
-    ["/admin/user/update"] = function(post_data)
-        local admin_user_controller = require("app.controllers.admin_user_controller")
-        return admin_user_controller.update(post_data)
+    ["/adminuser/update"] = function(post_data)
+        local adminuser_controller = require("app.controllers.adminuser_controller")
+        return adminuser_controller.update(post_data)
     end,
-    ["/admin/user/destroy"] = function(post_data)
-        local admin_user_controller = require("app.controllers.admin_user_controller")
-        return admin_user_controller.destroy(post_data)
+    ["/adminuser/destroy"] = function(post_data)
+        local adminuser_controller = require("app.controllers.adminuser_controller")
+        return adminuser_controller.destroy(post_data)
     end
 }
 
