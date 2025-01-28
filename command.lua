@@ -26,8 +26,8 @@ cli:command("sum <value1> <value2>", "Sum 2 values")
     :option(
         "option2","p","Option2 description",nil,"normal","option2_default_value")
     :action(function(parsed, command, app)
-        print("".. parsed.value1.. "+"..parsed.value2.." = " ..
-              tostring(tonumber(parsed.value1) + tonumber(parsed.value2)))
+        local sum = require "commands.sum"
+        sum.execute(parsed.value1, parsed.value2)
     end)
 
 cli:command("time", "Show time")
