@@ -1,4 +1,8 @@
 local User = require("app.models.user_model")
+local RedisUtils = require("utils.redis_utils")  -- Import Redis utilities
+local cjson = require("cjson")
+local utils = require("utils")
+local TemplateEngine = require("template_engine")  -- Import template engine
 
 local user_controller = {}
 
@@ -6,8 +10,9 @@ local user_controller = {}
 function user_controller.index(post_data)
     local users = User.all(0, 10)
 
-    return TemplateEngine.render("about", {
-        title = "List users"
+    return TemplateEngine.render("admin/user/index", {
+        title = "List users",
+        users = users
     })
 end
 
