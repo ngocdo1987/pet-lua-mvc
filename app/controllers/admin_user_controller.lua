@@ -6,7 +6,8 @@ local admin_user_controller = {}
 function admin_user_controller.index()
     
     return TemplateEngine.render("about", {
-        title = "List users"
+        title = "List users",
+        message = "List users"
     })
 end
 
