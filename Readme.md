@@ -26,3 +26,4 @@ lua server.lua
 ```bash
 lua command.lua
 ```
+Thanks for [DeepSeek](https://www.deepseek.com/) support me.
