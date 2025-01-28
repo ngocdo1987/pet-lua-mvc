@@ -8,8 +8,8 @@ local routes = {
         return home_controller.submit(post_data)
     end,
     ["/about"] = function()
-        local home_controller = require("app.controllers.home_controller")
-        return home_controller.about()
+        local adminuser_controller = require("app.controllers.adminuser_controller")
+        return adminuser_controller.index()
     end,
     ["/404"] = function()
         return "404 Not Found"
