@@ -29,5 +29,22 @@ cli:command("sum <value1> <value2>", "Sum 2 values")
               tostring(tonumber(parsed.value1) + tonumber(parsed.value2)))
     end)
 
+cli:command("time", "Show time")
+    :action( -- Join a action to execute
+        function(parsed, command, app) -- app is lummander instance
+            print(os.date("Time is: %I:%M:%S"))
+        end
+)
+
+cli:command("hi <name>", "Say hi to someone")
+    :action(
+        function(parsed, command, app)
+            -- parsed is a table that includes a field called "name" due to <name> at command schema
+            -- <name> is a required positional argument and is needed to trigger this function
+            -- parsed = { name }
+            print("Hi " .. parsed.name)
+        end
+)
+
 -- Parse and execute the command wrote
 cli:parse(arg) -- parse arg and execute if a command was written
