@@ -5,9 +5,13 @@ local path = require("pl.path")  -- For file path operations
 local TemplateEngine = {}
 
 -- Function to render a template
-function TemplateEngine.render(template_name, data)
+function TemplateEngine.render(sub_path, template_name, data)
     -- Construct the full path to the template file
-    local template_path = "app/views/" .. template_name .. ".etlua"
+    if sub_path == "admin/user" then
+        local template_path = "app/views/admin/user/" .. template_name .. ".etlua"
+    else
+        local template_path = "app/views/" .. template_name .. ".etlua"
+    end
 
     -- Check if the template file exists
     if not path.isfile(template_path) then

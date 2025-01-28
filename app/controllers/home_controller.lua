@@ -16,7 +16,7 @@ function home_controller.index(post_data)
     local users = User.all(0, USERS_PER_PAGE)  -- Fetch all users from the database
     
     -- Render the home template with data
-    return TemplateEngine.render("home", {
+    return TemplateEngine.render("", "home", {
         title = "Lua MVC Home",
         message = "Welcome to the Home Page!",
         users = users
@@ -32,16 +32,16 @@ function home_controller.submit(post_data)
         -- Create a new user in the database
         local success, err = User.create(name, email)
         if not success then
-            return TemplateEngine.render("error", { message = "Error: " .. err })
+            return TemplateEngine.render("", "error", { message = "Error: " .. err })
         end
-        return TemplateEngine.render("success", { message = "User created successfully!" })
+        return TemplateEngine.render("", "success", { message = "User created successfully!" })
     end
-    return TemplateEngine.render("error", { message = "Please provide a name and email." })
+    return TemplateEngine.render("", "error", { message = "Please provide a name and email." })
 end
 
 function home_controller.about()
     -- Render the home template with data
-    return TemplateEngine.render("about", {
+    return TemplateEngine.render("", "about", {
         title = "About us",
         message = "About us"
     })
