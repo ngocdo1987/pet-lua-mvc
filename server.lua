@@ -111,6 +111,7 @@ while true do
             session = session_manager.get_session(session_id)
         end
     end
+    print("CSRF: ", session.csrf_token)
     -- END COOKIES + SESSIONS
 
     -- Handle POST requests

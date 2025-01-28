@@ -30,8 +30,11 @@ end
 
 -- Show user information
 function user_controller.show(post_data)
+    local user = User.find(1)
+
     return TemplateEngine.render("admin/user/show", {
-        title = "Show user information"
+        title = "Show user information",
+        user = user
     })
 end
 

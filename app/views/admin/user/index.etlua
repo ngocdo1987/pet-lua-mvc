@@ -14,12 +14,17 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Actions</th>
             </tr>
             <% for _, user in ipairs(users) do %>
             <tr>
                 <td><%= user.id %></td>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
+                <td>
+                    <a class="btn btn-primary" href="/admin/user/edit?id=<%= user.id %>">Edit</a>
+                    <a class="btn btn-danger" href="/admin/user/destroy?id=<%= user.id %>">Delete</a>
+                </td>
             </tr>
             <% end %>
         </table>

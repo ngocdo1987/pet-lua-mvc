@@ -9,7 +9,21 @@
 <body>
     <div class="container">
         <h1 class="mt-4"><%= title %></h1>
-        This is edit user page
+        <form action="/admin/user/update" method="POST" class="mt-4">
+            <input type="hidden" name="id" value="<%= user.id %>">
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" value="<%= user.name %>">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" value="<%= user.email %>">
+            </div>
+            <a class="btn btn-primary" href="/admin/user">Back to list</a>
+            <button type="submit" class="btn btn-primary">Edit</button> 
+            
+        </form>
     </div>
 
     <!-- Add Bootstrap 4 JS and dependencies -->

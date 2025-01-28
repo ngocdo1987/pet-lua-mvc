@@ -9,7 +9,13 @@
 <body>
     <div class="container">
         <h1 class="mt-4"><%= title %></h1>
-        This is show user page
+        <ul>
+            <li>ID: <%= user.id %></li>
+            <li>Name: <%= user.name %></li>
+            <li>Email: <%= user.email %></li>
+        </ul>
+
+        <a class="btn btn-primary" href="/admin/user">Back to list</a>
     </div>
 
     <!-- Add Bootstrap 4 JS and dependencies -->
