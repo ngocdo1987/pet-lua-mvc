@@ -3,9 +3,8 @@ local User = require("app.models.user_model")
 local admin_user_controller = {}
 
 -- List users
-function admin_user_controller.index(post_data)
-    local users = User.all(0, 10)
-
+function admin_user_controller.index()
+    
     return TemplateEngine.render("about", {
         title = "List users"
     })

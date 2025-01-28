@@ -15,7 +15,7 @@ local routes = {
         return "404 Not Found"
     end,
     -- Admin routes for user
-    ["/admin/user"] = function()
+    ["/admin_user"] = function()
         local admin_user_controller = require("app.controllers.admin_user_controller")
         return admin_user_controller.index()
     end,
