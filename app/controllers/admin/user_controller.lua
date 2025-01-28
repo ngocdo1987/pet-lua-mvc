@@ -25,7 +25,7 @@ end
 
 -- Create new user
 function user_controller.store(post_data)
-
+    return TemplateEngine.render("success", { message = "User created successfully!" })
 end
 
 -- Show user information
@@ -44,12 +44,12 @@ end
 
 -- Update existed user
 function user_controller.update(post_data)
-
+    return TemplateEngine.render("success", { message = "User updated successfully!" })
 end
 
 -- Delete user
 function user_controller.destroy(post_data)
-
+    return TemplateEngine.render("success", { message = "User deleted successfully!" })
 end
 
 return user_controller
