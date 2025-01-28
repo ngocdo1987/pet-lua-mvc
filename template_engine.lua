@@ -9,10 +9,6 @@ function TemplateEngine.render(sub_path, template_name, data)
     -- Construct the full path to the template file
     local template_path = "app/views/" .. template_name .. ".etlua"
 
-    if sub_path == "admin/user" then
-        template_path = "app/views/admin/user/" .. template_name .. ".etlua"
-    end
-
     -- Check if the template file exists
     if not path.isfile(template_path) then
         error("Template file not found: " .. template_path)
