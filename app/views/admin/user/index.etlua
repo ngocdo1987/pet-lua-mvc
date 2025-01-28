@@ -9,7 +9,20 @@
 <body>
     <div class="container">
         <h1 class="mt-4"><%= title %></h1>
-        This is list users page
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <% for _, user in ipairs(users) do %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+            </tr>
+            <% end %>
+        </table>
+
+        <a class="btn btn-primary" href="/admin/user/create">Add new</a>
     </div>
 
     <!-- Add Bootstrap 4 JS and dependencies -->
